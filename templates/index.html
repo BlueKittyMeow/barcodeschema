@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Generator</title>
+    <script>
+        async function generateBarcode() {
+    const itemType = document.getElementById('item-type').value;
+    const formData = new FormData();
+    formData.append('item_type', itemType);
+
+    const response = await fetch('/generate_barcode', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData)
+    });
+
+    const data = await response.json();
+    document.getElementById('generated-barcode').innerText = data.barcode;
+}
+
+    </script>
+</head>
+<body>
+    <h1>Barcode Generator</h1>
+    <div>
+        <label for="item-type">Item type:</label>
+        <select id="item-type">
+            <option value="1" selected>Equipment</option>
+            <option value="2">Media</option>
+            <option value="3">Book</option>
+            <option value="4">Thesis</option>
+            <option value="5">Infrastructure</option>
+            <option value="6">Other</option>
+        </select>
+    </div>
+    <button onclick="generateBarcode()">Generate Barcode</button>
+    <div>
+        <p>Generated barcode:</p>
+        <p id="generated-barcode"></p>
+    </div>
+</body>
+</html>
