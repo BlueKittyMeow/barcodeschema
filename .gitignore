@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyc.og
+
+# Virtual environment
+venv/
+*.egg-info/
+
+# Logs
+*.log
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Config files
+config.json
+
+# Custom
+my-service-account-key.json

@@ -1,0 +1,6 @@
+runtime: python310
+
+env_variables:
+  GOOGLE_APPLICATION_CREDENTIALS: "/app/my-service-account-key.json"
+
+entrypoint: gunicorn -b :$PORT main:app

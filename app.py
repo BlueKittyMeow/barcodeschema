@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 SPREADSHEET_ID = '1f0g6QFPcuLY-D89Bd-af7nhnJCF1c8AIrcy2vZapAUw'
-JSON_KEY_FILE = 'barcode-380720-875e809eb0d3.json'
+JSON_KEY_FILE = 'my-service-account-key.json'
 
 creds = service_account.Credentials.from_service_account_file(JSON_KEY_FILE, scopes=SCOPES)
 sheets_api = build('sheets', 'v4', credentials=creds)
@@ -82,4 +82,5 @@ def create_barcode():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
+
