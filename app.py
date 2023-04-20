@@ -81,10 +81,13 @@ def create_barcode():
     return jsonify({"barcode": barcode})
 
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080, debug=True)
-
+# Other imports and Flask app setup...
 
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# Other routes and functions...
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8080, debug=True)
